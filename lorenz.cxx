@@ -14,7 +14,7 @@ void f(double *f, const double*  const r, const double a, const double b, const 
 
 int main(){
 
-const double dt=0.1;
+const double dt=0.001;
 const double T= 100;
 const int N= T/dt;
 
@@ -55,7 +55,7 @@ for(int i=0;i<N;i++){
   rtemp[1] = r[1] + dt * k3[1];
   rtemp[2] = r[2] + dt * k3[2];
 
-  f(k4, rtemp,a,b,c);
+  f(k4, rtemp,a,b,c); // k4 = f(r_n + dt * k3)
   
   r[0] = r[0] + dt/6 * (k1[0]+2*k2[0]+2+k3[0]+k4[0]);
   r[1] = r[1] + dt/6 * (k1[1]+2*k2[1]+2+k3[1]+k4[1]);
